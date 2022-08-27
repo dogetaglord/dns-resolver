@@ -8,8 +8,8 @@ const Registrar = '0xCB2Df8B3De2d4d59a7F22E2EB1C080BAafc58C2F';
 let RESOLVER_ABI = ['function name(bytes32) external view returns (string memory)'];
 let REVERSE_REGISTRAR_ABI = ['function node(address) public pure returns (bytes32)'];
 let DNS_OWNER_ABI = ['function owner(bytes32 node) public view returns (address)'];
-
-const namehash = (label) => ethers.utils.keccak256(ethers.utils.toUtf8Bytes(label));
+const namehash = require('eth-ens-namehash');
+// const namehash = (label) => ethers.utils.keccak256(ethers.utils.toUtf8Bytes(label));
 
 // returns primary name for an address
 // @param address - address to lookup
@@ -32,7 +32,7 @@ async function getPrimaryName(provider, address) {
 async function getAddressAssociatedWithDomain(provider, domain) {
 	let contract = new ethers.Contract(DNS, DNS_OWNER_ABI, provider);
 	// prepare domain name
-	const lh = namehash.hash(domain);
+	const lh = namehash(domain);
 	try {
 		return await contract.owner(lh);
 	} catch (err) {

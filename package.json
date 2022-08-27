@@ -1,15 +1,16 @@
 {
   "name": "@dogetaglord/dns-resolver",
   "description": "A DNS resolver for dogechain domains",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "dependencies": {
     "buffer": "^6.0.3",
+    "eth-ens-namehash": "^2.0.8",
     "ethers": "^5.7.0"
   },
   "main": "index.js",
   "repository": "git://github.com/dogetaglord/dns-resolver",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
+    "registry": "https://registry.npmjs.org",
     "access": "public"
   },
   "scripts": {
