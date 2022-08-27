@@ -1,7 +1,7 @@
 {
   "name": "@dogetaglord/dns-resolver",
   "description": "A DNS resolver for dogechain domains",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "dependencies": {
     "buffer": "^6.0.3",
     "eth-ens-namehash": "^2.0.8",

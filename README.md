@@ -1,9 +1,8 @@
-# dns-package
-
+# dns-resolver
 
 # Installation
 
-```npm install dns-package --save```
+```npm i @dogetaglord/dns-resolver```
 
 # Usage
 
@@ -20,7 +19,7 @@ Parameters :  address, address to resolve
 ## Resolve a name to its owner: 
 
 ```
-getAddressAssociatedWithDomain(provider, dotdogename)
+getAddressAssociatedWithDomain(dotdogename)
 ```
 
 Parameters :  dotdogename, name to resolve (eg. alice.doge)
