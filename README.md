@@ -12,7 +12,8 @@ The simplest way is to check the test.js file which is well commented out :)
 
 ```
 import dnsResolver from '@dogetaglord/dns-resolver'
-dnsResolver.getPrimaryName(address)
+const provider = new ethers.providers.JsonRpcProvider(YOUR_RPC_PROVIDER_URL);
+let name = dnsResolver.getPrimaryName(provider, address)
 ```
 
 Parameters :  address, address to resolve
@@ -21,8 +22,8 @@ Parameters :  address, address to resolve
 
 ```
 import dnsResolver from '@dogetaglord/dns-resolver'
-dnsResolver.getAddressAssociatedWithDomain(dotdogename)
+const provider = new ethers.providers.JsonRpcProvider(YOUR_RPC_PROVIDER_URL);
+let address = dnsResolver.getAddressAssociatedWithDomain(provider, "test.doge")
 ```
 
-Parameters :  dotdogename, name to resolve (eg. alice.doge)
 

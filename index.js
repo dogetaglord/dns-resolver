@@ -14,8 +14,7 @@ const labelhash = (label) => ethers.utils.keccak256(ethers.utils.toUtf8Bytes(lab
 
 // returns primary name for an address
 // @param address - address to lookup
-async function getPrimaryName( address) {
-	let provider = new ethers.providers.JsonRpcProvider("https://dogechain.ankr.com")
+async function getPrimaryName(provider, address) {
 	let dns = new ethers.Contract(DNS, DNS_OWNER_ABI, provider);
 	let reverseRegistar = new ethers.Contract(ReverseRegistrar, REVERSE_REGISTRAR_ABI, provider);
 	let resolver = new ethers.Contract(PublicResolver, RESOLVER_ABI, provider);
@@ -31,8 +30,7 @@ async function getPrimaryName( address) {
 
 // returns the address for a given name
 // @param domain - domain name eg. "mydomain.doge"
-async function getAddressAssociatedWithDomain(domain) {
-	let provider = new ethers.providers.JsonRpcProvider("https://dogechain.ankr.com")
+async function getAddressAssociatedWithDomain(provider, domain) {
 	let contract = new ethers.Contract(DNS, DNS_OWNER_ABI, provider);
 	// prepare domain name
 	const lh = namehash.hash(domain);
@@ -45,9 +43,8 @@ async function getAddressAssociatedWithDomain(domain) {
 
 // returns information to display user nft domains using a token ID
 // param domain name eg. "mydomain.doge"
-async function getTokenURI(domainName) {
+async function getTokenURI(provider, domainName) {
 	// prepare domain name
-	let provider = new ethers.providers.JsonRpcProvider("https://dogechain.ankr.com")
 	const lh = labelhash(domainName);
 	let contract = new ethers.Contract(Registrar, REGISTRAR_ABI, provider);
 	try {
